@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+xclip -h >/dev/null || exit
+
+dir="~/Documents/SPH_BC/"
+#url=$(sort ~/.config/bookmarks | sed 's/:.*//' | dmenu -i -p "Select a Bookmark" | xargs -I % grep "%:" ~/.config/bookmarks | sed 's/.*://')
+#chosen=$(grep -v "#" ~/Documents/sph_podklady/publications | sed 's/:.*//'  | dmenu -i -l 20 -fn Monospace-18)
+chosen=$(grep -v "#" ~/Documents/SPH_articles/SPH_BC/publications  | dmenu -i -l 20 -fn Monospace-16)
+[ "$chosen" != "" ] || exit
+
+file=$(echo "$chosen" | sed 's/.*://')
+#echo "$chosen"
+#echo "$file"
+open="$dir$file"
+#echo "$open"
+
+zathura "$open"

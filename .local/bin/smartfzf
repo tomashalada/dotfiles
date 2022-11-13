@@ -1,0 +1,48 @@
+#!/usr/bin/env sh
+
+# This script will pipe the output from fzf to appropriate application.
+
+#file=$(fzf)
+#file=$(fzf --height 40% --info inline --border \
+#    --preview "file {}" --preview-window up,1,border-horizontal \
+#    --color "fg:#bbccdd,fg+:#ddeeff,bg:#334455,preview-bg:#223344,border:#778899")
+
+file=$(fzf --height 40% --info inline --border \
+  --preview "file {}" --preview-window up,1,border-horizontal )
+
+case "$file" in
+	*\.pdf) zathura "$file" &;;
+	*\.png) sxiv "$file" &;;
+	*\.jpg) sxiv "$file" &;;
+	*\.txt) $EDITOR "$file" ;;
+	*\.tex) $EDITOR "$file" ;;
+	*\.dat) $EDITOR "$file" ;;
+	*\.log) $EDITOR "$file" ;;
+	*\.csv) $EDITOR "$file" ;;
+	*\.sh) $EDITOR "$file" ;;
+	*\.py) $EDITOR "$file" ;;
+	*\.jl) $EDITOR "$file" ;;
+	*\.m) $EDITOR "$file" ;;
+	*\.c) $EDITOR "$file" ;;
+	*\.cc) $EDITOR "$file" ;;
+	*\.h) $EDITOR "$file" ;;
+	*\.cpp) $EDITOR "$file" ;;
+	*\.hpp) $EDITOR "$file" ;;
+	*\.cu) $EDITOR "$file" ;;
+	*\.cuh) $EDITOR "$file" ;;
+	*\.rs) $EDITOR "$file" ;;
+	*\.go) $EDITOR "$file" ;;
+	*\.gp) $EDITOR "$file" ;;
+	*\.xml) $EDITOR "$file" ;;
+	*\.conf) $EDITOR "$file" ;;
+	*\.html) $BROWSER "$file" &;; #pipe to dmenu, ask for
+	*\.md) $BROWSER "$file" &;;
+	*\.vtk) paraview "$file" &;;
+	*\.stl) paraview "$file" &;;
+	*\.vtu) paraview "$file" &;;
+	*\.ogv) mpv "$file" &;;
+	*\.avi) mpv "$file" &;;
+	*\.mp4) mpv "$file" &;;
+	*);; #pipe to dmenu, ask for execution
+esac
+
