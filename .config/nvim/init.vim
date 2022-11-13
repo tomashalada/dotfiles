@@ -45,7 +45,7 @@ colorscheme gruvbox
 	set encoding=utf-8
 	set number relativenumber
 	set tabstop=2
-	set shiftwidth=4
+	set shiftwidth=2
 " Enable autocompletion:
 	set wildmode=longest,list,full
 " Disables automatic commenting on newline:
