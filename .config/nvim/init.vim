@@ -23,6 +23,11 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'brgmnn/vim-opencl'
+Plug 'editorconfig/editorconfig-vim'
+
+
+
 call plug#end()
 
 set title
@@ -44,8 +49,9 @@ colorscheme gruvbox
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
-	set tabstop=2
-	set shiftwidth=2
+	set tabstop=3
+	set shiftwidth=3
+	set softtabstop=0 expandtab
 " Enable autocompletion:
 	set wildmode=longest,list,full
 " Disables automatic commenting on newline:
@@ -55,9 +61,15 @@ colorscheme gruvbox
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
-	map <leader>o :setlocal spell! spelllang=en_us<CR>
+	map <leader>m :setlocal spell! spelllang=en_us<CR>
+	map <leader>o :setlocal spell! spelllang=cs<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitbelow splitright
+
+" Editorconfig
+" let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+let g:EditorConfig_core_mode = "vim_core"
+let g:EditorConfig_preserve_formatoptions = 1
 
 " Coc Settings
 let g:coc_global_extensions = [
