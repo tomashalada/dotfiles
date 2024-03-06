@@ -25,7 +25,11 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'brgmnn/vim-opencl'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'lervag/vimtex'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
 
 
 call plug#end()
@@ -41,6 +45,7 @@ set noruler
 set laststatus=0
 set noshowcmd
 colorscheme gruvbox
+set colorcolumn=128
 
 " Some basics:
 	nnoremap c "_c
@@ -189,3 +194,16 @@ source ~/.config/nvim/typemacro.vim
 " Settings for autocompletion with cocnvim
 " Keep it separate cause its still a bit of mess
 source ~/.config/nvim/cocsettings.vim
+
+" Telesoce
+nnoremap <leader>pf <cmd>Telescope find_files<cr>
+nnoremap <leader>ps <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Harpoon
+nnoremap <leader>a <cmd>:lua require("harpoon.mark").add_file()<cr>
+nnoremap <C-e> <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
+
+" General
+nnoremap <leader>pv <cmd>:Ex<cr>
