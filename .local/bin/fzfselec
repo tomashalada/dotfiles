@@ -45,4 +45,3 @@ case "$file" in
 	*\.mp4) mpv "$file" &;;
 	*);; #pipe to dmenu, ask for execution
 esac
-
