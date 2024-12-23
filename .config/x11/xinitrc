@@ -14,5 +14,5 @@ else
 	. "$HOME/.xprofile"
 fi
 
-ssh-agent dwm
-#ssh-agent i3
+# In case using dwm, use "ssh-agent dwm" instead
+ssh-agent i3
